@@ -111,4 +111,6 @@ $(document).ready(function() {
   $refurb.val($.cookie('refurbishments'))
   $convey.text(default_conveyancing)
   calculate()
+
+  $("#button").on("click", calculate())
 })
