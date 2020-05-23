@@ -1,5 +1,3 @@
-* {
-  box-sizing: border-box; }
 
 body {
   padding: 0;
@@ -187,7 +185,7 @@ a {
     .main-content blockquote > :last-child {
       margin-bottom: 0; }
   .main-content table {
-    display: block;
+    /* display: block; XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX */
     width: 100%;
     overflow: auto;
     word-break: normal;

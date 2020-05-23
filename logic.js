@@ -25,8 +25,7 @@ function stampduty_cost(price) {
   return stamp + (price - 1500000)*0.15
 }
 
-
-function calculate() {
+function calculate(e) {
   var downpayment = parseInt($mort_down.val())
   var principal = parseInt($mort_princ.val())
   var rate = parseFloat($mort_rate.val())
@@ -72,6 +71,10 @@ function calculate() {
   $.cookie('expenditures', expenditures);
   $.cookie('rate', rate);
   $.cookie('refurbishments', refurbishments);
+
+  if (e)
+    e.preventDefault()
+  return false
 }
 
 $(document).ready(function() {
@@ -112,5 +115,5 @@ $(document).ready(function() {
   $convey.text(default_conveyancing)
   calculate()
 
-  $("#button").on("click", calculate())
+  $("#button").on("click", calculate)
 })
