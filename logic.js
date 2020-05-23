@@ -27,16 +27,32 @@ function stampduty_cost(price) {
 
 function calculate(e) {
   var downpayment = parseInt($mort_down.val())
-  var principal = parseInt($mort_princ.val())
-  var rate = parseFloat($mort_rate.val())
-  var refurbishments = parseInt($refurb.val())
-  var monthly_rental = parseInt($monthly_rental.val())
-  var expenditures = parseInt($expenditures.val())
-  var mort_duration = parseInt($mort_duration.val())
-  var conveyancing = parseInt($convey.text())
+  if (isNaN(downpayment)) { downpayment = 0; $mort_down.val(downpayment); }
 
+  var principal = parseInt($mort_princ.val())
+  if (isNaN(principal)) { principal = 0; $mort_princ.val(principal); }
+
+  var rate = parseFloat($mort_rate.val())
+  if (isNaN(rate)) { rate = 0; $mort_rate.val(rate); }
+
+  var refurbishments = parseInt($refurb.val())
+  if (isNaN(refurbishments)) { refurbishments = 0; $refurb.val(refurbishments); }
+
+  var monthly_rental = parseInt($monthly_rental.val())
+  if (isNaN(monthly_rental)) { monthly_rental = 0; $monthly_rental.val(monthly_rental); }
+
+  var expenditures = parseInt($expenditures.val())
+  if (isNaN(expenditures)) { expenditures = 0; $expenditures.val(expenditures); }
+
+  var mort_duration = parseInt($mort_duration.val())
+  if (isNaN(mort_duration)) { mort_duration = 0; $mort_duration.val(mort_duration); }
+
+  var conveyancing = parseInt($convey.text())
+  $convey.val(conveyancing)
+console.log(downpayment)
   var mort_monthly = monthlyPayment(principal, 12*mort_duration, rate/12/100)
   var interests = parseInt(12*mort_duration*mort_monthly - principal)
+  if (isNaN(interests)) interests = 0
   var hmrc_price = downpayment + principal
   var stamp_duty = isNaN(hmrc_price) ? 0 : parseInt(stampduty_cost(hmrc_price))
   var effective_sd_rate = 100.0 * stamp_duty / hmrc_price
@@ -47,20 +63,14 @@ function calculate(e) {
 
   var roi = 100.0 * annual_in / total_out
 
-  $mort_down.val(isNaN(downpayment) ? 0 : downpayment)
-  $mort_princ.val(isNaN(principal) ? 0 : principal)
-  $mort_rate.val(isNaN(rate) ? '0.0' : rate.toFixed(1))
-  $mort_monthly.text(isNaN(mort_monthly) ? 0 : parseInt(mort_monthly))
-  $refurb.val(isNaN(refurbishments) ? 0 : refurbishments)
-  $convey.val(conveyancing)
   $stampduty.text(isNaN(stamp_duty) ? 0 : stamp_duty)
-  $monthly_rental.val(isNaN(monthly_rental) ? 0 : monthly_rental)
   $interests.text(isNaN(interests) ? 0 : interests)
-  $expenditures.val(isNaN(expenditures) ? 0 : expenditures)
   $total_out.text(isNaN(total_out) ? 0 : total_out)
   $actual_expenditures.text(isNaN(actual_expenditures) ? 0 : actual_expenditures)
   $annual_in.text(isNaN(annual_in) ? 0 : annual_in)
+
   $roi.text(isFinite(roi) ? 'ROI: ' + roi.toFixed(2) + '%' : '')
+  $mort_monthly.text(isNaN(mort_monthly) ? 0 : parseInt(mort_monthly))
   $effective_sd_rate.text(isNaN(effective_sd_rate) ? "0.0" : effective_sd_rate.toFixed(2))
 
   /* Save cookies */
