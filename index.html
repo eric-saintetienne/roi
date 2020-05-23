@@ -18,12 +18,28 @@
 #main-content {
   width: 800px;
 }
+h1 {
+  padding-top: 1em;
+}
 thead {
   font-weight: bold;
 }
-
+hr {
+  height: 0px !important;
+}
 body {
   text-align: center;
+  color: #eee;
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(13,108,103,1) 7%, rgba(11,73,111,1) 15%, rgba(55,97,9,1) 24%, rgba(21,125,109,1) 32%, rgba(11,105,112,1) 40%, rgba(18,116,57,1) 47%, rgba(92,101,18,1) 55%, rgba(9,99,125,1) 62%, rgba(11,130,97,1) 69%, rgba(27,90,161,1) 75%, rgba(21,124,78,1) 81%, rgba(20,129,83,1) 86%, rgba(20,112,113,1) 90%, rgba(10,106,125,1) 94%, rgba(0,126,127,1) 100%);
+}
+
+table {
+  color: #444;
+ }
+
+tbody tr {
+  background: white;
 }
 
 tbody tr:nth-child(odd),
@@ -94,9 +110,7 @@ thead.bottom tr td:last-child {
     </style>
   </head>
   <body>
-    <section class="page-header">
-      <h1 class="project-name">ROI Calculator</h1>
-    </section>
+    <h1 class="project-name">ROI Calculator</h1>
 
     <section class="main-content">
       <p>Mortgage duration: <input type=number id=mort_duration> years</p>
@@ -121,7 +135,7 @@ thead.bottom tr td:last-child {
         </table>
       </p>
 
-      <p><hr></p>
+      <hr>
 
       <p class=center>
         <table class=fullwidth>
@@ -141,7 +155,8 @@ thead.bottom tr td:last-child {
         </table>
       </p>
 
-      <br>
+      <hr>
+
       <p class=center><a href="#" class=btn id=button>Calculate!</a></p>
       <div id=roi></div>
       <p>Mortgage monthly payment: £ <span id=mort-monthly></span></p>
