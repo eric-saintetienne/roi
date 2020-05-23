@@ -81,7 +81,6 @@ $(document).ready(function() {
   $expenditures = $("#expenditures")
   $actual_expenditures = $("#actual-expenditures")
   $mort_rate = $("#mort-rate")
-  console.log($mort_rate)
   $mort_monthly = $("#mort-monthly")
   $refurb = $("#refurb")
   $convey = $("#convey")
