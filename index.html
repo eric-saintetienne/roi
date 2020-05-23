@@ -1,35 +1,85 @@
+
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-us">
   <head>
     <meta charset="UTF-8">
-
-<!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>ROI Calculator</title>
-<meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="ROI Calculator" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="ROI Calculator" />
-<meta property="og:description" content="ROI Calculator" />
-<link rel="canonical" href="https://eric-saintetienne.github.io/roi/" />
-<meta property="og:url" content="https://eric-saintetienne.github.io/roi/" />
-<meta property="og:site_name" content="roi" />
-<script type="application/ld+json">
-{"@type":"WebSite","url":"https://eric-saintetienne.github.io/roi/","name":"roi","headline":"ROI Calculator","description":"ROI Calculator","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
+    <title>ROI Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/roi/assets/css/style.css?v=df9b5682535d7fb43aed669c0199090bbee06a60">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="logic.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/cayman.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/github-light.css" media="screen">
+    <style style="text/css">
+thead td {
+  font-weight: bold;
+}
+thead tr.header td {
+  text-align: center;
+}
+td.vertical img {
+  vertical-align: middle;
+}
+td.vertical {
+  padding: 7px !important;
+}
+input {
+  width: 100px;
+}
+td, .right {
+  text-align: right;
+}
+unit {
+  display: inline-block;
+  width: 15px;
+  text-align: left;
+}
+#roi {
+  padding-top: 0.5em;
+  font-size: 2em;
+}
+.center {
+  text-align: center;
+}
+.fullwidth {
+  width: 100%;
+}
+    </style>
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">ROI</h1>
-      <h2 class="project-tagline">ROI Calculator</h2>
-      
+      <h1 class="project-name">ROI Calculator</h1>
     </section>
 
     <section class="main-content">
-      <h2 id="welcome-to-github-pages">Welcome to GitHub Pages</h2>
+      <p>Mortgage duration: <input id=mort_duration> years</p>
+      <p>Mortgage rate: <input id=mort-rate> years</p>
+      <table>
+        <thead>
+          <tr class=header><td colspan=3>TOTAL COST</td><td colspan=2>ANNUAL INCOME</td></tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan=3 class=vertical><img src="vertical-mortgage-text.png" height=50%></td>
+            <td          >Downpayment:</td><td><input id=mort-down> <unit>£</unit></td> <td class=right>Monthly rental:</td><td><input id=monthly-rental> <unit>£</unit></td></tr>
+          <tr><td          >Principal:</td><td><input id=mort-princ> <unit>£</unit></td>
+            <td class=right>Expenditures:</td><td><input id=expenditures> <unit>%</unit><div class="center fullwidth">(£ <span id=actual-expenditures></span>)</div></td></tr>
+          <tr><td          >Interests:</td><td class=center>£ <span id=interests></span></td>
+              <td colspan=2 rowspan=4></td></tr>
+          <tr><td colspan=2>Refurbishments:</td><td><input id=refurb> <unit>£</unit></td></tr>
+          <tr><td colspan=2>Conveyancing:</td><td class=center>£ <span id=convey></span></td></tr>
+          <tr><td colspan=2>Stamp Duty:</td><td class=center>£ <span id=stampduty>0</span></td></tr>
+        </tbody>
+        <thead>
+          <tr><td colspan=2>TOTAL:</td><td clas=center><span id=total-out>0</span> <unit>£</unit></td><td>TOTAL:</td><td class=center><span id=annual-in>0</span> <unit>£</unit></td></tr>
+        </thead>
+      </table>
+      <div id=roi></div>
+      <p>Mortgage monthly payment: £ <span id=mort-monthly></span></p>
+      <p>Effective Stamp Duty Rate: <span id=effective-stamp-duty-rate></span>%</p>
     </section>
   </body>
 </html>
+
