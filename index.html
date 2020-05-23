@@ -83,8 +83,8 @@ unit {
     </section>
 
     <section class="main-content">
-      <p>Mortgage duration: <input id=mort_duration> years</p>
-      <p>Mortgage rate: <input id=mort-rate> %</p>
+      <p>Mortgage duration: <input type=number id=mort_duration> years</p>
+      <p>Mortgage rate: <input type=number id=mort-rate> %</p>
       <p>
         <table class=fullwidth>
           <thead class=fullwidth>
@@ -92,10 +92,10 @@ unit {
           </thead>
           <tbody>
             <tr><td rowspan=3 class=vertical><img src="vertical-mortgage-text.png" height=50%></td>
-              <td          >Downpayment:</td><td><input id=mort-down> <unit>£</unit></td></tr>
-            <tr><td          >Principal:</td><td><input id=mort-princ> <unit>£</unit></td></tr>
+              <td          >Downpayment:</td><td><input type=number id=mort-down> <unit>£</unit></td></tr>
+            <tr><td          >Principal:</td><td><input type=number id=mort-princ> <unit>£</unit></td></tr>
             <tr><td          >Interests:</td><td class=center>£ <span id=interests></span></td></tr>
-            <tr><td colspan=2>Refurbishments:</td><td><input id=refurb> <unit>£</unit></td></tr>
+            <tr><td colspan=2>Refurbishments:</td><td><input type=number id=refurb> <unit>£</unit></td></tr>
             <tr><td colspan=2>Conveyancing:</td><td class=center>£ <span id=convey></span></td></tr>
             <tr><td colspan=2>Stamp Duty:</td><td class=center>£ <span id=stampduty>0</span></td></tr>
           </tbody>
@@ -113,8 +113,8 @@ unit {
             <tr class=header><th colspan=2>ANNUAL INCOME</th></tr>
           </thead>
           <tbody>
-            <tr><td class=right>Monthly rental:</td><td><input id=monthly-rental> <unit>£</unit></td></tr>
-            <tr><td class=right>Expenditures:</td><td><input id=expenditures> <unit>%</unit>
+            <tr><td class=right>Monthly rental:</td><td><input type=number id=monthly-rental> <unit>£</unit></td></tr>
+            <tr><td class=right>Expenditures:</td><td><input type=number id=expenditures> <unit>%</unit>
                                 <div class="center fullwidth">(£ <span id=actual-expenditures></span>)</div></td></tr>
           </tbody>
 
