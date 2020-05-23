@@ -16,7 +16,7 @@
     <style style="text/css">
 
 #main-content {
-  width: 800px !important;
+  width: 800px;
 }
 thead {
   font-weight: bold;
@@ -60,7 +60,7 @@ unit {
   text-align: center;
 }
 .fullwidth {
-  width: 100% !important;
+  width: 100%;
   margin: auto;
   text-align: center;
 }
@@ -70,10 +70,26 @@ unit {
   padding: 1em;
   width: 50%;
   margin: auto;
+  border-radius: 10px;
 }
 .btn:hover {
   background: #444;
   color: #ccc;
+}
+thead.top tr th,
+thead.bottom tr td {
+  border: none;
+}
+thead.top tr th {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+thead.bottom tr td:first-child {
+  border-bottom-left-radius: 10px;
+}
+thead.bottom tr td:last-child {
+  border-bottom-right-radius: 15px;
 }
     </style>
   </head>
@@ -87,7 +103,7 @@ unit {
       <p>Mortgage rate: <input type=number id=mort-rate> %</p>
       <p>
         <table class=fullwidth>
-          <thead class=fullwidth>
+          <thead class=top>
             <tr class=header><th colspan=3>TOTAL COST</th></tr>
           </thead>
           <tbody>
@@ -99,7 +115,7 @@ unit {
             <tr><td colspan=2>Conveyancing:</td><td class=center>£ <span id=convey></span></td></tr>
             <tr><td colspan=2>Stamp Duty:</td><td class=center>£ <span id=stampduty>0</span></td></tr>
           </tbody>
-          <thead>
+          <thead class=bottom>
             <tr><td colspan=2>TOTAL:</td><td class=center><span id=total-out>0</span> <unit>£</unit></td></tr>
           </thead>
         </table>
@@ -109,7 +125,7 @@ unit {
 
       <p class=center>
         <table class=fullwidth>
-          <thead>
+          <thead class=top>
             <tr class=header><th colspan=2>ANNUAL INCOME</th></tr>
           </thead>
           <tbody>
@@ -119,7 +135,7 @@ unit {
           </tbody>
 
            
-          <thead>
+          <thead class=bottom>
             <tr><td>TOTAL:</td><td class=center><span id=annual-in>0</span> <unit>£</unit></td></tr>
           </thead>
         </table>
