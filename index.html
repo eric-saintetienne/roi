@@ -17,8 +17,15 @@
 thead td {
   font-weight: bold;
 }
+
+tbody tr:nth-child(odd),
+thead tr:nth-child(odd) {
+  background: #eee;
+}
+
 thead tr.header td {
   text-align: center;
+  background: #bbb;
 }
 td.vertical img {
   vertical-align: middle;
@@ -46,6 +53,7 @@ unit {
 }
 .fullwidth {
   width: 100%;
+  min-width: 100%;
 }
     </style>
   </head>
@@ -57,25 +65,42 @@ unit {
     <section class="main-content">
       <p>Mortgage duration: <input id=mort_duration> years</p>
       <p>Mortgage rate: <input id=mort-rate> years</p>
-      <table>
+      <table class=fullwidth>
         <thead>
-          <tr class=header><td colspan=3>TOTAL COST</td><td colspan=2>ANNUAL INCOME</td></tr>
+          <tr class=header><td colspan=3>TOTAL COST</td></tr>
         </thead>
         <tbody>
           <tr><td rowspan=3 class=vertical><img src="vertical-mortgage-text.png" height=50%></td>
-            <td          >Downpayment:</td><td><input id=mort-down> <unit>£</unit></td> <td class=right>Monthly rental:</td><td><input id=monthly-rental> <unit>£</unit></td></tr>
-          <tr><td          >Principal:</td><td><input id=mort-princ> <unit>£</unit></td>
-            <td class=right>Expenditures:</td><td><input id=expenditures> <unit>%</unit><div class="center fullwidth">(£ <span id=actual-expenditures></span>)</div></td></tr>
-          <tr><td          >Interests:</td><td class=center>£ <span id=interests></span></td>
-              <td colspan=2 rowspan=4></td></tr>
+            <td          >Downpayment:</td><td><input id=mort-down> <unit>£</unit></td></tr>
+          <tr><td          >Principal:</td><td><input id=mort-princ> <unit>£</unit></td></tr>
+          <tr><td          >Interests:</td><td class=center>£ <span id=interests></span></td></tr>
           <tr><td colspan=2>Refurbishments:</td><td><input id=refurb> <unit>£</unit></td></tr>
           <tr><td colspan=2>Conveyancing:</td><td class=center>£ <span id=convey></span></td></tr>
           <tr><td colspan=2>Stamp Duty:</td><td class=center>£ <span id=stampduty>0</span></td></tr>
         </tbody>
         <thead>
-          <tr><td colspan=2>TOTAL:</td><td clas=center><span id=total-out>0</span> <unit>£</unit></td><td>TOTAL:</td><td class=center><span id=annual-in>0</span> <unit>£</unit></td></tr>
+          <tr><td colspan=2>TOTAL:</td><td class=center><span id=total-out>0</span> <unit>£</unit></td></tr>
         </thead>
       </table>
+
+      <p><hr></p>
+
+      <table class=fullwidth>
+        <thead>
+          <tr class=header><td colspan=2>ANNUAL INCOME</td></tr>
+        </thead>
+        <tbody>
+          <tr><td class=right>Monthly rental:</td><td><input id=monthly-rental> <unit>£</unit></td></tr>
+          <tr><td class=right>Expenditures:</td><td><input id=expenditures> <unit>%</unit>
+                              <div class="center fullwidth">(£ <span id=actual-expenditures></span>)</div></td></tr>
+        </tbody>
+
+         
+        <thead>
+          <tr><td>TOTAL:</td><td class=center><span id=annual-in>0</span> <unit>£</unit></td></tr>
+        </thead>
+      </table>
+
       <div id=roi></div>
       <p>Mortgage monthly payment: £ <span id=mort-monthly></span></p>
       <p>Effective Stamp Duty Rate: <span id=effective-stamp-duty-rate></span>%</p>
