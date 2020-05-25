@@ -51,8 +51,12 @@ th {
   text-align: center;
   background: #bbb;
 }
+td.vertical,
 td.vertical img {
   vertical-align: middle;
+  width: 17px;
+  min-width: 17px;
+  max-width: 17px;
 }
 td.vertical {
   padding: 7px !important;
@@ -108,7 +112,6 @@ thead.bottom tr td:last-child {
   border-bottom-right-radius: 15px;
 }
 details {
-  display: inline-block;
   font-size: 0.9em;
   color: #777;
   margin: 0px;
@@ -134,9 +137,9 @@ input {
           <tbody>
             <tr><td rowspan=3 class=vertical><img src="vertical-mortgage-text.png" height=50%></td>
               <td          >Downpayment:</td><td><input type=number id=mort-down tabindex=3> <unit>£</unit></td></tr>
-	    <tr><td          >Principal:<details tabindex=-1>The amount<br>actually borrowed</details></td><td><input type=number id=mort-princ tabindex=4> <unit>£</unit></td></tr>
+	    <tr><td          >Principal:<br><details tabindex=-1>The amount actually borrowed</details></td><td><input type=number id=mort-princ tabindex=4> <unit>£</unit></td></tr>
             <tr><td          >Interests:</td><td class=center>£ <span id=interests></span></td></tr>
-	    <tr><td colspan=2>Other Costs:<details tabindex=-1>(refurbishment...)</details></td><td><input type=number id=refurb tabindex=5> <unit>£</unit></td></tr>
+	    <tr><td colspan=2>Other Costs:<br><details tabindex=-1>(refurbishment...)</details></td><td><input type=number id=refurb tabindex=5> <unit>£</unit></td></tr>
             <tr><td colspan=2>Conveyancing:</td><td class=center>£ <span id=convey></span></td></tr>
             <tr><td colspan=2>Stamp Duty:</td><td class=center>£ <span id=stampduty>0</span></td></tr>
           </tbody>
@@ -155,7 +158,7 @@ input {
           </thead>
           <tbody>
             <tr><td class=right>Monthly rental:</td><td><input type=number id=monthly-rental tabindex=6> <unit>£</unit></td></tr>
-	    <tr><td class=right>Expenditure:<details tabindex=-1>(void, maintenance, insurance, cleaning...)</details></td><td><input type=number id=expenditures tabindex=7> <unit>%</unit>
+	    <tr><td class=right>Expenditure:<br><details tabindex=-1>(void, maintenance, insurance, cleaning...)</details></td><td><input type=number id=expenditures tabindex=7> <unit>%</unit>
                                 <div class="center fullwidth">(£ <span id=actual-expenditures></span>)</div></td></tr>
           </tbody>
 
