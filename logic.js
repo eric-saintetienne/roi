@@ -26,6 +26,7 @@ function stampduty_cost(price) {
 }
 
 function calculate(e) {
+  console.log("calculate")
   var downpayment = parseInt($mort_down.val())
   if (isNaN(downpayment)) { downpayment = 0; $mort_down.val(downpayment); }
 
@@ -49,7 +50,7 @@ function calculate(e) {
 
   var conveyancing = parseInt($convey.text())
   $convey.val(conveyancing)
-console.log(downpayment)
+
   var mort_monthly = monthlyPayment(principal, 12*mort_duration, rate/12/100)
   var interests = parseInt(12*mort_duration*mort_monthly - principal)
   if (isNaN(interests)) interests = 0
@@ -126,4 +127,5 @@ $(document).ready(function() {
   calculate()
 
   $("#button").on("click", calculate)
+  $mort_duration.focus()
 })
