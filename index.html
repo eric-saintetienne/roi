@@ -107,14 +107,21 @@ thead.bottom tr td:first-child {
 thead.bottom tr td:last-child {
   border-bottom-right-radius: 15px;
 }
+details {
+  display: inline-block;
+  font-size: 0.9em;
+  color: #777;
+  margin: 0px;
+  padding: 0px;
+}
     </style>
   </head>
   <body>
     <h1 class="project-name">ROI Calculator</h1>
 
     <section class="main-content">
-      <p>Mortgage duration: <input type=number id=mort_duration> years</p>
-      <p>Mortgage rate: <input type=number id=mort-rate> %</p>
+      <p>Mortgage duration: <input type=number id=mort_duration tabindex=1> years</p>
+      <p>Mortgage rate: <input type=number id=mort-rate tabindex=2> %</p>
       <p>
         <table class=fullwidth>
           <thead class=top>
@@ -122,10 +129,10 @@ thead.bottom tr td:last-child {
           </thead>
           <tbody>
             <tr><td rowspan=3 class=vertical><img src="vertical-mortgage-text.png" height=50%></td>
-              <td          >Downpayment:</td><td><input type=number id=mort-down> <unit>£</unit></td></tr>
-            <tr><td          >Principal:</td><td><input type=number id=mort-princ> <unit>£</unit></td></tr>
+              <td          >Downpayment:</td><td><input type=number id=mort-down tabindex=3> <unit>£</unit></td></tr>
+	    <tr><td          >Principal:<details tabindex=-1>The amount<br>actually borrowed</details></td><td><input type=number id=mort-princ tabindex=4> <unit>£</unit></td></tr>
             <tr><td          >Interests:</td><td class=center>£ <span id=interests></span></td></tr>
-	    <tr><td colspan=2>Other Costs:<br>(e.g. refurbishment)</td><td><input type=number id=refurb> <unit>£</unit></td></tr>
+	    <tr><td colspan=2>Other Costs:<details tabindex=-1>(refurbishment...)</details></td><td><input type=number id=refurb tabindex=5> <unit>£</unit></td></tr>
             <tr><td colspan=2>Conveyancing:</td><td class=center>£ <span id=convey></span></td></tr>
             <tr><td colspan=2>Stamp Duty:</td><td class=center>£ <span id=stampduty>0</span></td></tr>
           </tbody>
@@ -143,8 +150,8 @@ thead.bottom tr td:last-child {
             <tr class=header><th colspan=2>ANNUAL INCOME</th></tr>
           </thead>
           <tbody>
-            <tr><td class=right>Monthly rental:</td><td><input type=number id=monthly-rental> <unit>£</unit></td></tr>
-            <tr><td class=right>Expenditures:</td><td><input type=number id=expenditures> <unit>%</unit>
+            <tr><td class=right>Monthly rental:</td><td><input type=number id=monthly-rental tabindex=6> <unit>£</unit></td></tr>
+	    <tr><td class=right>Expenditure:<details tabindex=-1>(void, maintenance, insurance, cleaning...)</details></td><td><input type=number id=expenditures tabindex=7> <unit>%</unit>
                                 <div class="center fullwidth">(£ <span id=actual-expenditures></span>)</div></td></tr>
           </tbody>
 
@@ -157,7 +164,7 @@ thead.bottom tr td:last-child {
 
       <hr>
 
-      <p class=center><a href="#" class=btn id=button>Calculate!</a></p>
+      <p class=center><a href="#" class=btn id=button tabindex=8>Calculate!</a></p>
       <div id=roi></div>
       <p>Mortgage monthly payment: £ <span id=mort-monthly></span></p>
       <p>Effective Stamp Duty rate: <span id=effective-stamp-duty-rate></span> %</p>
